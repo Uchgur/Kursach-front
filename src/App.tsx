@@ -8,15 +8,24 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Menu />
-        <Switch>
-          <Route exact path="/hotels">
-            <HotelPage />
-          </Route>
-          <Route exact path="/hotels/:id">
-            <HotelDetails />
-          </Route>
-        </Switch>
+        <div className="menu">
+          <Menu />
+        </div>
+        <div className='container'>
+          <Switch>
+            <Route exact path="/hotels">
+              <HotelPage />
+            </Route>
+            <Route exact path="/hotels/:id">
+              <HotelDetails />
+            </Route>
+          </Switch>
+        </div>
+        <footer className="footer">
+          <div className="container">
+            Made by Kaunaz Dagaz
+          </div>
+        </footer>
       </BrowserRouter>
     </>
   );

@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.footer {
+  background-color: lightskyblue;
+  opacity: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+}
+
+.menu {
+  background-color: lightskyblue;
+  display: flex;
+  position: sticky;
+  align-items: left;
+  margin-bottom: 40px;
+  height: 60px;
+  width: 100%;
+}
