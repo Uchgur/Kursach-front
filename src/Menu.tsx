@@ -9,6 +9,9 @@ export default function Menu() {
               <NavLink className="menu-main" to="/hotels">
                 Hotels
               </NavLink>
+              <NavLink className="menu-sub" to="/hotels/create">
+                Add New Hotel
+              </NavLink>
             </div>
           </nav>
         </Switch>

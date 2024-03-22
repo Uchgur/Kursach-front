@@ -1,3 +1,5 @@
+import { imageDTO } from "../images/image.model";
+
 export interface roomDTO {
     id: number;
     type: string;
@@ -5,5 +7,6 @@ export interface roomDTO {
     price: string;
     description?: string;
     image?: string;
+    images?: imageDTO[];
     hotelId: number;
 }

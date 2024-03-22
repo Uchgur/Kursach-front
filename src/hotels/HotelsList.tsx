@@ -1,7 +1,7 @@
-import HotelIndividual from "./HotelIndividual";
 import { hotelDTO } from "./hotel.model";
-import GenericList from './../utils/GenericList';
+import GenericList from '../utils/GenericList';
 import css from './hotelsList.module.css'
+import HotelIndividual from "./hotelIndividual";
 
 export default function HotelsList(props: hotelsListProps) {
     return (

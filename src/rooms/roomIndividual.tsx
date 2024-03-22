@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { hotelDTO } from "./hotel.model";
-import css from "./hotelIndividual.module.css"
+import { roomDTO } from "./room.model";
 import ReactMarkdown from "react-markdown";
 
-export default function HotelIndividual(props: hotelDTO) {
-    const buildLink = () => `/hotels/${props.id}`;
+export default function HotelIndividual(props: roomDTO) {
+    const buildLink = () => `/rooms/${props.id}`;
 
     function truncateText(text: string, maxLength: number) {
       if (text.length > maxLength) {
@@ -14,18 +13,15 @@ export default function HotelIndividual(props: hotelDTO) {
     }
 
     return (
-        <div className={css.div}>
+        <div>
           <Link to={buildLink()}>
             <img alt="Image" src={props.image} />
           </Link>
           <h1>
-            <Link to={buildLink()}>{props.name}</Link>
+            <Link to={buildLink()}>{props.type}</Link>
           </h1>
-          <h2>
-            <text>{props.city + ", " + props.address}</text>
-          </h2>
           <p>
-            <ReactMarkdown>{truncateText(props.description, 230)}</ReactMarkdown>
+            <ReactMarkdown>{truncateText(props.description!, 230)}</ReactMarkdown>
           </p>
         </div>
       );

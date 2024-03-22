@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
-import { hotelDTO } from "./hotel.model";
-import axios, { AxiosResponse } from "axios";
-import HotelsList from "./HotelsList";
+import axios from "axios";
+import HotelsList from "./hotelsList";
 
 export default function HotelPage() {
     const [hotels, setHotels] = useState([]);

@@ -1,8 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './Menu';
-import HotelPage from './hotels/HotelsPage';
-import HotelDetails from './hotels/HotelDetails';
+import HotelPage from './hotels/hotelsPage';
+import HotelDetails from './hotels/hotelDetails';
+import HotelCreation from './hotels/hotelCreation';
+import HotelEdit from './hotels/hotelEdit';
 
 function App() {
   return (
@@ -16,13 +18,19 @@ function App() {
             <Route exact path="/hotels">
               <HotelPage />
             </Route>
+            <Route exact path="/hotels/create">
+              <HotelCreation />
+            </Route>
+            <Route exact path="/hotels/edit/:id">
+              <HotelEdit />
+            </Route>
             <Route exact path="/hotels/:id">
               <HotelDetails />
             </Route>
           </Switch>
         </div>
         <footer className="footer">
-          <div className="container">
+          <div>
             Made by Kaunaz Dagaz
           </div>
         </footer>
