@@ -40,6 +40,7 @@ export default function HotelDetails() {
                         ))}
                     </div>
                     <text>{hotel?.description}</text>
+                    <h1>Available Rooms</h1>
                     <RoomsList rooms={getRooms(hotel?.id)} />
                 </div>
             ) : (

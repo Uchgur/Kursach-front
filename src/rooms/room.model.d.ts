@@ -10,3 +10,14 @@ export interface roomDTO {
     images?: imageDTO[];
     hotelId: number;
 }
+
+export interface roomCreationDTO {
+    id: number;
+    type: string;
+    beds: number;
+    price: string;
+    description?: string;
+    image?: File;
+    imageURL: string;
+    hotelId: number;
+}

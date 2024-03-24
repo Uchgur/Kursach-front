@@ -14,7 +14,7 @@
 }
 
 .container h2 {
-    display: inline;
+    display: flex;
     position: relative;
     font-size: 25px;
     margin-left: 30px;

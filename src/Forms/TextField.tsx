@@ -12,7 +12,7 @@ export default function TextField(props: textFieldProps) {
 interface textFieldProps {
     field: string;
     displayName: string;
-    type: 'text' | 'password';
+    type: 'text' | 'password' | 'number';
 }
 
 TextField.defaultProps = {

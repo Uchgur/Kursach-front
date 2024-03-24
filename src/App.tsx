@@ -5,6 +5,7 @@ import HotelPage from './hotels/hotelsPage';
 import HotelDetails from './hotels/hotelDetails';
 import HotelCreation from './hotels/hotelCreation';
 import HotelEdit from './hotels/hotelEdit';
+import RoomDetails from './rooms/roomDetails';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route exact path="/hotels/:id">
               <HotelDetails />
+            </Route>
+            <Route exact path="/rooms/:id">
+              <RoomDetails />
             </Route>
           </Switch>
         </div>

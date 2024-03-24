@@ -1,6 +1,7 @@
 import { hotelCreationDTO } from "../hotels/hotel.model";
+import { roomCreationDTO } from "../rooms/room.model";
 
-export function convertHotelToFormData(hotel: hotelCreationDTO): FormData{
+export function convertHotelToFormData(hotel: hotelCreationDTO): FormData {
     const formData = new FormData();
 
     formData.append('name', hotel.name);
@@ -16,5 +17,25 @@ export function convertHotelToFormData(hotel: hotelCreationDTO): FormData{
     if (hotel.image) {
         formData.append('image', hotel.image);
     }
+    return formData;
+}
+
+export function convertRoomToFormData(room: roomCreationDTO): FormData {
+    const formData = new FormData();
+
+    formData.append('type', room.type);
+
+    formData.append('beds', room.beds.toString());
+
+    formData.append('price', room.price);
+
+    if (room.description) {
+        formData.append('description', room.description);
+    }
+
+    if (room.image) {
+        formData.append('image', room.image);
+    }
+
     return formData;
 }
