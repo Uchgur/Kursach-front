@@ -6,7 +6,7 @@ import { convertHotelToFormData } from "../utils/FormDataUtil";
 import HotelForm from "./hotelForm";
 
 export default function HotelCreation() {
-const history = useHistory();
+    const history = useHistory();
 
     async function create(hotel: hotelCreationDTO) {
             const formData = convertHotelToFormData(hotel);

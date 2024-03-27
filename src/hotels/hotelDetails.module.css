@@ -3,7 +3,7 @@
 }
 
 .container h1 {
-    display: flex;
+    display: inline-flex;
     position: relative;
     top: 30px;
     height: 10px;
@@ -14,10 +14,21 @@
 }
 
 .container h2 {
-    display: inline;
+    display: flex;
     position: relative;
     font-size: 25px;
     margin-left: 30px;
+}
+
+.container h3 {
+    display: inline;
+    position: relative;
+    top: 30px;
+    height: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 30px;
+    margin-bottom: 80px;
 }
 
 .container .div {

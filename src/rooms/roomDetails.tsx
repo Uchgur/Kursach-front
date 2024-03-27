@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { roomDTO } from "./room.model";
 import axios from "axios";
-import css from './roomDetails.module.css'
+import css from './roomDetails.module.css' 
 
 export default function RoomDetails() {
     const {id}: any = useParams();
@@ -19,6 +19,9 @@ export default function RoomDetails() {
             {room ? (
                 <div className={css.container}>
                     <h1>{"Room Type: " + room?.type}</h1>
+                    <Link className="edit-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
+                        Edit
+                    </Link>
                     <h2>{"Room Price: " + room?.price}</h2>
                     <h2>{"Number of Beds: " + room?.beds}</h2>
                     <div className={css.div}>

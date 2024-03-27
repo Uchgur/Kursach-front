@@ -37,5 +37,7 @@ export function convertRoomToFormData(room: roomCreationDTO): FormData {
         formData.append('image', room.image);
     }
 
+    formData.append('hotelId', room.hotelId.toString())
+
     return formData;
 }

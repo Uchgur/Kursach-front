@@ -6,6 +6,8 @@ import HotelDetails from './hotels/hotelDetails';
 import HotelCreation from './hotels/hotelCreation';
 import HotelEdit from './hotels/hotelEdit';
 import RoomDetails from './rooms/roomDetails';
+import RoomCreation from './rooms/roomCreation';
+import RoomEdit from './rooms/roomEdit';
 
 function App() {
   return (
@@ -28,7 +30,13 @@ function App() {
             <Route exact path="/hotels/:id">
               <HotelDetails />
             </Route>
-            <Route exact path="/rooms/:id">
+            <Route exact path="/hotels/:id/rooms/create">
+              <RoomCreation />
+            </Route>
+            <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+              <RoomEdit />
+            </Route>
+            <Route exact path="/hotels/:hotelId/rooms/:id">
               <RoomDetails />
             </Route>
           </Switch>

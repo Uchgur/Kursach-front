@@ -12,12 +12,11 @@ export interface roomDTO {
 }
 
 export interface roomCreationDTO {
-    id: number;
     type: string;
     beds: number;
     price: string;
     description?: string;
     image?: File;
-    imageURL: string;
+    imageURL?: string;
     hotelId: number;
 }

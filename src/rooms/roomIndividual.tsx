@@ -3,8 +3,8 @@ import { roomDTO } from "./room.model";
 import ReactMarkdown from "react-markdown";
 import css from './roomIndividual.module.css'
 
-export default function HotelIndividual(props: roomDTO) {
-    const buildLink = () => `/rooms/${props.id}`;
+export default function RoomIndividual(props: roomDTO) {
+    const buildLink = () => `/hotels/${props.hotelId}/rooms/${props.id}`;
 
     function truncateText(text: string, maxLength: number) {
       if (text.length > maxLength) {

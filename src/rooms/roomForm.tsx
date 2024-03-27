@@ -19,7 +19,7 @@ export default function RoomForm(props: roomFormProps) {
                     <ImageField displayName="Prewiew image" field="image" />
 
                     <Button disabled={formikProps.isSubmitting} type="submit">Save Changes</Button>
-                    <Link to="/hotels">Cancel</Link>
+                    <Link to={`/hotels/${props.model.hotelId}`}>Cancel</Link>
                 </Form>
             )}
         </Formik>

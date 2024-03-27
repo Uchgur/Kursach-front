@@ -3,7 +3,7 @@
 }
 
 .container h1 {
-    display: flex;
+    display: inline-flex;
     position: relative;
     top: 30px;
     height: 10px;

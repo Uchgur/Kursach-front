@@ -5,6 +5,7 @@ import { hotelDTO } from "./hotel.model";
 import css from "./hotelDetails.module.css"
 import { roomDTO } from "../rooms/room.model";
 import RoomsList from "../rooms/roomsList";
+import RoomCreation from "../rooms/roomCreation";
 
 export default function HotelDetails() {
     const { id }: any = useParams();
@@ -30,10 +31,10 @@ export default function HotelDetails() {
             {hotel ? (
                 <div className={css.container}>
                     <h1>{hotel?.name}</h1>
-                    <h2>{hotel?.city + ", " + hotel?.address}</h2>
                     <Link className="edit-link" to={`/hotels/edit/${hotel?.id}`}>
                         Edit
                     </Link>
+                    <h2>{hotel?.city + ", " + hotel?.address}</h2>
                     <div className={css.div}>
                         {hotel?.images?.map((image) => (
                             <img alt="Image" src={image.file}></img>
@@ -41,6 +42,9 @@ export default function HotelDetails() {
                     </div>
                     <text>{hotel?.description}</text>
                     <h1>Available Rooms</h1>
+                    <Link className="creation-link" to={`/hotels/${hotel?.id}/rooms/create`}>
+                            Add new room
+                    </Link>
                     <RoomsList rooms={getRooms(hotel?.id)} />
                 </div>
             ) : (
