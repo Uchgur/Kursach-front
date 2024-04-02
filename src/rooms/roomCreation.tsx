@@ -8,8 +8,8 @@ export default function RoomCreation() {
     const { id }: any = useParams();
     const history = useHistory();
 
-    async function create(hotel: roomCreationDTO) {
-        const formData = convertRoomToFormData(hotel);
+    async function create(room: roomCreationDTO) {
+        const formData = convertRoomToFormData(room);
         const response = await axios({
             method: "post",
             url: "https://localhost:7173/api/hotel/rooms/create",
@@ -26,8 +26,4 @@ export default function RoomCreation() {
                 onSubmit={async (values) => await create(values)} />
         </>
     )
-}
-
-interface roomCreationProps {
-    hotelId: number;
 }

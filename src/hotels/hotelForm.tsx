@@ -17,7 +17,7 @@ export default function HotelForm(props: hotelFormProps) {
                     <TextField displayName="Address" field="address" />
                     <TextField displayName="Contact Information" field="contactInformation" />
                     <TextField displayName="Description" field="description"/>
-                    <ImageField displayName="Prewiew image" field="image" />
+                    <ImageField displayName="Prewiew image" field="image" imageURL={props.model.imageURL}/>
 
                     <Button disabled={formikProps.isSubmitting} type="submit">Save Changes</Button>
                     <Link to="/hotels">Cancel</Link>

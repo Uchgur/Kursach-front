@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.edit-link {
+.edit-creation-link {
   display: inline;
   position: relative;
   margin-left: 30px;
@@ -25,11 +25,10 @@ code {
   cursor: pointer;
 }
 
-.creation-link {
-  display: inline;
+.images-link {
+  display: inline-flex;
   position: relative;
   margin-left: 30px;
-  top: 25px;
   color: #fff;
   background-color: #007bff;
   border: none;

@@ -19,7 +19,7 @@ export default function RoomDetails() {
             {room ? (
                 <div className={css.container}>
                     <h1>{"Room Type: " + room?.type}</h1>
-                    <Link className="edit-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
+                    <Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
                         Edit
                     </Link>
                     <h2>{"Room Price: " + room?.price}</h2>
