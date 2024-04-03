@@ -11,52 +11,86 @@ import RoomEdit from './rooms/roomEdit';
 import Register from './auth/register';
 import Authorized from './auth/authorize';
 import Login from './auth/login';
+import { useEffect, useState } from 'react';
+import { getClaims } from './auth/handleJWT';
+import { claim } from './auth/auth.model';
+import AuthenticationContext from './auth/authentificationContext';
+import UsersPage from './auth/usersPage';
 
 function App() {
+  const [claims, setClaims] = useState<claim[]>([]);
+
+  useEffect(() => {
+    setClaims(getClaims());
+  }, []);
+
+  function isAdmin() {
+    return (
+      claims.findIndex(
+        (claim) => claim.name === "role" && claim.value === "admin"
+      ) > -1
+    );
+  }
+
+  function isHotelOwner() {
+    return (
+      claims.findIndex(
+        (claim) => claim.name === "role" && claim.value === "hotelOwner"
+      ) > -1
+    );
+  }
+
+
   return (
     <>
       <BrowserRouter>
-        <div className="menu">
-          <Menu />
-        </div>
-        <div className='container'>
-          <Switch>
-            <Route exact path="/hotels">
-              <HotelPage />
-            </Route>
-            <Route exact path="/hotels/create">
-              <HotelCreation />
-            </Route>
-            <Route exact path="/hotels/edit/:id">
-              <HotelEdit />
-            </Route>
-            <Route exact path="/hotels/:id">
-              <HotelDetails />
-            </Route>
-            <Route exact path="/hotels/:id/rooms/create">
-              <RoomCreation />
-            </Route>
-            <Route exact path="/hotels/:hotelId/rooms/edit/:id">
-              <RoomEdit />
-            </Route>
-            <Route exact path="/hotels/:hotelId/rooms/:id">
-              <RoomDetails />
-            </Route>
+        <Switch>
+          <AuthenticationContext.Provider value={{ claims, update: setClaims }}>
+            <div className="menu">
+              <Menu />
+            </div>
+            <div className='container'>
+              <Route exact path="/hotels">
+                <HotelPage />
+              </Route>
+              <Route exact path="/hotels/create">
+                <HotelCreation />
+              </Route>
+              <Route exact path="/hotels/edit/:id">
+                <HotelEdit />
+              </Route>
+              <Route exact path="/hotels/hotel/:id">
+                <HotelDetails />
+              </Route>
 
-            <Route path="/accounts/create">
-              <Register />
-            </Route>
-            <Route path="/accounts/login">
-              <Login />
-            </Route>
-          </Switch>
-        </div>
+              <Route exact path="/hotels/:id/rooms/create">
+                <RoomCreation />
+              </Route>
+              <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+                <RoomEdit />
+              </Route>
+              <Route exact path="/hotels/:hotelId/rooms/room/:id">
+                <RoomDetails />
+              </Route>
+
+              <Route exact path="/accounts/create">
+                <Register />
+              </Route>
+              <Route exact path="/accounts/login">
+                <Login />
+              </Route>
+              <Route exact path="/accounts/listUsers" >
+                <UsersPage />
+              </Route>
+            </div>
+          </AuthenticationContext.Provider>
+        </Switch>
         <footer className="footer">
           <div>
             Made by Kaunaz Dagaz
           </div>
         </footer>
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   );
 }

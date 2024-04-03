@@ -4,7 +4,7 @@ import css from "./hotelIndividual.module.css"
 import ReactMarkdown from "react-markdown";
 
 export default function HotelIndividual(props: hotelDTO) {
-    const buildLink = () => `/hotels/${props.id}`;
+    const buildLink = () => `/hotels/hotel/${props.id}`;
 
     function truncateText(text: string, maxLength: number) {
       if (text.length > maxLength) {

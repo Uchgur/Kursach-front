@@ -16,5 +16,4 @@ export interface authenticationResponse {
 export interface userDTO {
     id: string;
     email: string;
-    confirmed: boolean;
 }
