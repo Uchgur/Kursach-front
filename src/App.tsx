@@ -16,6 +16,7 @@ import { getClaims } from './auth/handleJWT';
 import { claim } from './auth/auth.model';
 import AuthenticationContext from './auth/authentificationContext';
 import UsersPage from './auth/usersPage';
+import ReservationCreation from './reservations/reservationCreation';
 
 function App() {
   const [claims, setClaims] = useState<claim[]>([]);
@@ -71,6 +72,10 @@ function App() {
               </Route>
               <Route exact path="/hotels/:hotelId/rooms/room/:id">
                 <RoomDetails />
+              </Route>
+
+              <Route exact path="/hotels/:hotelId/rooms/room/:id/reservation/create">
+                <ReservationCreation />
               </Route>
 
               <Route exact path="/accounts/create">

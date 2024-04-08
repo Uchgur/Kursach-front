@@ -15,7 +15,7 @@ export default function Login(){
             .post<authenticationResponse>("https://localhost:7173/api/accounts/login", credentials);
             saveToken(response.data);
             update(getClaims());
-            history.push('/feeders');
+            history.push('/hotels');
     }
 
     return (

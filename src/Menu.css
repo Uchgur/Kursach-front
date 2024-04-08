@@ -16,3 +16,23 @@
     align-items: center;
     text-decoration: none;
 }
+
+.menu-auth-el {
+    position: absolute;
+    right: 0;
+}
+
+.menu-auth {
+    font-size: 20px;
+    margin: 0px 15px 0px 15px;
+    line-height: 50px;
+    color: gray;
+    text-decoration: none;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(191, 53, 53);
+}

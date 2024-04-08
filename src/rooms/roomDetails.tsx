@@ -19,6 +19,9 @@ export default function RoomDetails() {
             {room ? (
                 <div className={css.container}>
                     <h1>{"Room Type: " + room?.type}</h1>
+                    <Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/room/${room.id}/reservation/create`}>
+                        Reserve
+                    </Link>
                     <Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
                         Edit
                     </Link>

@@ -25,34 +25,34 @@ export default function Menu() {
           </NavLink>
           <Authorized
             authorized={
-              <>
-                <span className="nav-link">Hello, {getUserEmail()}</span>
+              <span className="menu-auth-el">
+                <span className="menu-auth">Hello, {getUserEmail()}</span>
                 <Button
                   onClick={() => {
                     logout();
                     update([]);
                   }}
-                  className="nav-link btn btn-link"
+                  className="menu-auth menu-button"
                 >
                   Log Out
                 </Button>
-              </>
+              </span>
             }
             notAuthorized={
-              <>
+              <span className="menu-auth-el">
                 <Link
                   to="/accounts/create"
-                  className="nav-link btn btn-link"
+                  className="menu-auth"
                 >
                   Register
                 </Link>
                 <Link
                   to="/accounts/login"
-                  className="nav-link btn btn-link"
+                  className="menu-auth"
                 >
                   Login
                 </Link>
-              </>
+              </span>
             }
           />
         </div>

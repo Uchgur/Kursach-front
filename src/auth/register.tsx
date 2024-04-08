@@ -14,7 +14,7 @@ export default function Register() {
             const response = await axios.post<authenticationResponse>("https://localhost:7173/api/accounts/create", credentials);
             saveToken(response.data);
             update(getClaims());
-            history.push('/feeders');
+            history.push('/hotels');
     }
     
     return (
