@@ -17,13 +17,13 @@ export default function ReservationCreation() {
             data: formData,
             headers: { 'Content-Type': 'multipart/form-data' }
         })
-        history.push(`/hotels/${hotelId}`);
+        history.push(`/hotels/hotel/${hotelId}`);
     }
 
     return(
         <>
             <h1>Create new reservation</h1>
-            <ReservationForm model={{startDate: new Date(), endDate: new Date(), hotelId: hotelId, roomId: id, confirmation: false}} 
+            <ReservationForm model={{startDate: new Date(), endDate: new Date(), hotelId: hotelId, roomId: id, confirmation: false, canceled: false}} 
                 onSubmit={async (values) => await create(values)} />
         </>
     )

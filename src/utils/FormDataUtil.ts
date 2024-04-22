@@ -52,6 +52,8 @@ export function convertReservationToFormData(reservation: reservationCreationDTO
 
     formData.append('confirmation', String(reservation.confirmation));
 
+    formData.append('canceled', String(reservation.canceled));
+
     formData.append('hotelId', reservation.hotelId.toString());
 
     formData.append('roomId', reservation.roomId.toString());
@@ -59,7 +61,7 @@ export function convertReservationToFormData(reservation: reservationCreationDTO
     return formData;
 }
 
-function formatDate(date: Date){
+export function formatDate(date: Date){
     date = new Date(date);
     const format = new Intl.DateTimeFormat("en", {
         year: 'numeric',

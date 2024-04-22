@@ -17,12 +17,18 @@ import { claim } from './auth/auth.model';
 import AuthenticationContext from './auth/authentificationContext';
 import UsersPage from './auth/usersPage';
 import ReservationCreation from './reservations/reservationCreation';
+import ReservationConfirmation from './reservations/reservationConfirm';
+import ReservationsPage from './reservations/reservationsPage';
+import configureInterceptor from './utils/HttpInterceptors';
+
+configureInterceptor();
 
 function App() {
   const [claims, setClaims] = useState<claim[]>([]);
 
   useEffect(() => {
     setClaims(getClaims());
+    console.log(claims)
   }, []);
 
   function isAdmin() {
@@ -54,12 +60,25 @@ function App() {
               <Route exact path="/hotels">
                 <HotelPage />
               </Route>
-              <Route exact path="/hotels/create">
-                <HotelCreation />
-              </Route>
-              <Route exact path="/hotels/edit/:id">
-                <HotelEdit />
-              </Route>
+              {isHotelOwner() ? (
+                <>
+                  <Route exact path="/hotels/create">
+                    <HotelCreation />
+                  </Route>
+                  <Route exact path="/hotels/edit/:id">
+                    <HotelEdit />
+                  </Route>
+                </>
+              ) : (
+                <>
+                  <Route exact path="/hotels/create">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                  <Route exact path="/hotels/edit/:id">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                </>
+              )}
               <Route exact path="/hotels/hotel/:id">
                 <HotelDetails />
               </Route>
@@ -74,7 +93,13 @@ function App() {
                 <RoomDetails />
               </Route>
 
-              <Route exact path="/hotels/:hotelId/rooms/room/:id/reservation/create">
+              <Route exact path="/hotels/:hotelId/rooms/reservations">
+                <ReservationsPage />
+              </Route>
+              <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
+                <ReservationConfirmation />
+              </Route>
+              <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
                 <ReservationCreation />
               </Route>
 

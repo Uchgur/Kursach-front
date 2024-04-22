@@ -31,11 +31,14 @@ export default function HotelDetails() {
             {hotel ? (
                 <div className={css.container}>
                     <h1>{hotel?.name}</h1>
-                    <Link className="edit-creation-link" to={`/hotels/edit/${hotel?.id}`}>
+                    <Link className="edit-creation-link" to={`/hotels/edit/${hotel.id}`}>
                         Edit
                     </Link>
+                    <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/reservations`}>
+                        Show all reservations
+                    </Link>
                     <h2>{hotel?.city + ", " + hotel?.address}</h2>
-                    <Link className="images-link" to={`/hotels/images/create/${hotel?.id}`}>
+                    <Link className="images-link" to={`/hotels/images/create/${hotel.id}`}>
                         Add new images
                     </Link>
                     <div className={css.div}>
@@ -45,7 +48,7 @@ export default function HotelDetails() {
                     </div>
                     <text>{hotel?.description}</text>
                     <h1>Available Rooms</h1>
-                    <Link className="edit-creation-link" to={`/hotels/${hotel?.id}/rooms/create`}>
+                    <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/create`}>
                             Add new room
                     </Link>
                     <RoomsList rooms={getRooms(hotel?.id)} />

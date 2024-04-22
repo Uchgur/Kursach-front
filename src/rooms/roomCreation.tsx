@@ -16,7 +16,7 @@ export default function RoomCreation() {
             data: formData,
             headers: { 'Content-Type': 'multipart/form-data' }
         })
-        history.push(`/hotels/${id}`);
+        history.push(`/hotels/hotel/${id}`);
     }
 
     return (

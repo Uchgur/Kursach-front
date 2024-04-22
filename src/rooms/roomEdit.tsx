@@ -42,7 +42,7 @@ export default function RoomEdit() {
 
     async function deleteRoom() {
         await axios.delete(`https://localhost:7173/api/hotel/rooms/delete/${id}`);
-        history.push(`/hotels/${hotelId}`);
+        history.push(`/hotels/hotel/${hotelId}`);
     }
 
     return (
