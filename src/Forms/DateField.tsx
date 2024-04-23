@@ -1,10 +1,11 @@
 import { useFormikContext } from "formik";
+import css from "./DateField.module.css"
 
 export default function DateField(props: dateFieldProps) {
   const { values, validateForm, touched, errors } = useFormikContext<any>();
 
   return (
-    <div className="mb-3">
+    <div className={css.div}>
       <label htmlFor={props.field}>{props.displayName}</label>
 
       <input
@@ -12,6 +13,7 @@ export default function DateField(props: dateFieldProps) {
         className="form-control"
         id={props.field}
         name={props.field}
+        disabled={props.disabled}
         defaultValue={values[props.field]?.toISOString().split('T')[0]}
         onChange={(e) => {
           const date = new Date(e.currentTarget.value);
@@ -29,4 +31,9 @@ export default function DateField(props: dateFieldProps) {
 interface dateFieldProps {
   field: string;
   displayName: string;
+  disabled: boolean;
+}
+
+DateField.defaultProps = {
+  disabled: false
 }

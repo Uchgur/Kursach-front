@@ -46,12 +46,12 @@ export default function HotelEdit() {
 
     return (
         <>
-            <h1>Edit Hotel</h1>
             {hotel ? (<>
                 <HotelForm model={hotel}
                     onSubmit={async values => await edit(values)}
+                    onEdit={true}
                 />
-                <Button onClick={deleteHotel}>
+                <Button onClick={deleteHotel} className="delete-button">
                     Delete
                 </Button>
             </>

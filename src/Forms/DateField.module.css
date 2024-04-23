@@ -1,0 +1,15 @@
+.div {
+    display: block;
+}
+
+.div label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    margin-top: 12px;
+}
+
+.div input {
+    margin-bottom: 12px;
+    font-size: 14px;
+}

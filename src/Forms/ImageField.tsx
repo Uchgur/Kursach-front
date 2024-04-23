@@ -1,5 +1,6 @@
 import { useFormikContext } from "formik";
 import { ChangeEvent, useState } from "react";
+import css from "./ImageField.module.css"
 
 export default function ImageField(props: imageFieldProps) {
     const [imageBase64, setImageBase64] = useState('');
@@ -33,7 +34,7 @@ export default function ImageField(props: imageFieldProps) {
     }
 
     return (
-        <div className="mb-3">
+        <div className={css.div}>
             <label>{props.displayName}</label>
             <div>
                 <input type="file" accept=".jpeg,.jpg,.png,.webp" onChange={handleOnChange} />

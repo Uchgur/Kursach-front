@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { roomDTO } from "./room.model";
 import axios from "axios";
-import css from './roomDetails.module.css' 
+import css from './roomDetails.module.css'
+import Authorized from "../auth/authorize";
 
 export default function RoomDetails() {
-    const {id}: any = useParams();
+    const { id }: any = useParams();
     const [room, setRoom] = useState<roomDTO>()
 
     useEffect(() => {
@@ -22,9 +23,13 @@ export default function RoomDetails() {
                     <Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/${room.id}/reservation/create`}>
                         Reserve
                     </Link>
-                    <Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
-                        Edit
-                    </Link>
+                    <Authorized
+                        authorized={<Link className="edit-creation-link" to={`/hotels/${room.hotelId}/rooms/edit/${room.id}`}>
+                            Edit
+                        </Link>}
+                        role="hotelOwner"
+                    />
+
                     <h2>{"Room Price: " + room?.price}</h2>
                     <h2>{"Number of Beds: " + room?.beds}</h2>
                     <div className={css.div}>

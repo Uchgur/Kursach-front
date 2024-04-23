@@ -23,6 +23,7 @@ code {
   padding: 10px 20px;
   text-decoration: none;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .images-link {
@@ -35,4 +36,47 @@ code {
   padding: 10px 20px;
   text-decoration: none;
   cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button {
+  display: inline;
+  position: relative;
+  top: 25px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.cancel-button {
+  display: inline;
+  position: relative;
+  margin-left: 30px;
+  top: 25px;
+  color: #fff;
+  background-color: #3e3e3f;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.delete-button {
+  display: flex;
+  position: relative;
+  bottom: 20px;
+  margin-left: 30px;
+  color: #fff;
+  background-color: #d31b11;
+  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 25px;
+  font-size: 16px;
 }

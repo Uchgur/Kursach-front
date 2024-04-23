@@ -47,12 +47,12 @@ export default function RoomEdit() {
 
     return (
         <>
-            <h1>Edit Room</h1>
             {room ? (<>
                 <RoomForm model={room}
                     onSubmit={async values => await edit(values)}
+                    onEdit={true}
                 />
-                <Button onClick={deleteRoom}>
+                <Button onClick={deleteRoom} className="delete-button">
                     Delete
                 </Button>
             </>

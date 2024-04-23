@@ -42,7 +42,6 @@ export default function ReservationConfirmation() {
 
     return (
         <>
-            <h1>Reservation confiramtion page</h1>
             {reservation ? (<>
                 <ReservationForm model={reservation}
                     onSubmit={async values => await edit(values)}

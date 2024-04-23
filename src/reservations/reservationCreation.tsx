@@ -22,7 +22,6 @@ export default function ReservationCreation() {
 
     return(
         <>
-            <h1>Create new reservation</h1>
             <ReservationForm model={{startDate: new Date(), endDate: new Date(), hotelId: hotelId, roomId: id, confirmation: false, canceled: false}} 
                 onSubmit={async (values) => await create(values)} />
         </>

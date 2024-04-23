@@ -6,6 +6,7 @@ import css from "./hotelDetails.module.css"
 import { roomDTO } from "../rooms/room.model";
 import RoomsList from "../rooms/roomsList";
 import RoomCreation from "../rooms/roomCreation";
+import Authorized from "../auth/authorize";
 
 export default function HotelDetails() {
     const { id }: any = useParams();
@@ -31,16 +32,30 @@ export default function HotelDetails() {
             {hotel ? (
                 <div className={css.container}>
                     <h1>{hotel?.name}</h1>
-                    <Link className="edit-creation-link" to={`/hotels/edit/${hotel.id}`}>
-                        Edit
-                    </Link>
-                    <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/reservations`}>
-                        Show all reservations
-                    </Link>
+                    <Authorized
+                        authorized={
+                            <>
+                                <Link className="edit-creation-link" to={`/hotels/edit/${hotel.id}`}>
+                                    Edit
+                                </Link>
+                                <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/reservations`}>
+                                    Show all reservations
+                                </Link>
+                            </>
+                        }
+                        role="hotelOwner"
+                    />
+
                     <h2>{hotel?.city + ", " + hotel?.address}</h2>
-                    <Link className="images-link" to={`/hotels/images/create/${hotel.id}`}>
-                        Add new images
-                    </Link>
+                    <Authorized
+                        authorized={
+                            <Link className="images-link" to={`/hotels/images/create/${hotel.id}`}>
+                                Add new images
+                            </Link>
+                        }
+                        role="hotelOwner"
+                    />
+
                     <div className={css.div}>
                         {hotel?.images?.map((image) => (
                             <img alt="Image" src={image.file}></img>
@@ -48,9 +63,14 @@ export default function HotelDetails() {
                     </div>
                     <text>{hotel?.description}</text>
                     <h1>Available Rooms</h1>
-                    <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/create`}>
-                            Add new room
-                    </Link>
+                    <Authorized
+                        authorized={
+                            <Link className="edit-creation-link" to={`/hotels/${hotel.id}/rooms/create`}>
+                                Add new room
+                            </Link>
+                        }
+                        role="hotelOwner"
+                    />
                     <RoomsList rooms={getRooms(hotel?.id)} />
                 </div>
             ) : (

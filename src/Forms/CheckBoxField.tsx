@@ -1,10 +1,11 @@
 import { useFormikContext } from "formik";
+import css from "./CheckBoxField.module.css"
 
 export default function CheckboxField(props: checkboxFieldProps) {
   const { values, setFieldValue } = useFormikContext<any>();
 
   return (
-    <div className="mb-3">
+    <div className={css.div}>
       <label htmlFor={props.field}>{props.displayName}</label>
 
       <input
@@ -17,6 +18,8 @@ export default function CheckboxField(props: checkboxFieldProps) {
           setFieldValue(props.field, e.currentTarget.checked ? true : false);
         }}
       />
+      
+      <text>{props.text}</text>
     </div>
   );
 }
@@ -24,4 +27,5 @@ export default function CheckboxField(props: checkboxFieldProps) {
 interface checkboxFieldProps {
   field: string;
   displayName: string;
+  text: string;
 }

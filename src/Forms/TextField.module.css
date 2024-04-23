@@ -1,0 +1,15 @@
+.div {
+    display: block;
+}
+
+.div label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.field {
+    margin-bottom: 12px;
+    width: 20%;
+    font-size: 14px;
+}

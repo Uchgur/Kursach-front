@@ -1,0 +1,16 @@
+.div {
+    display: block;
+}
+
+.div label {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.markdownfield {
+    margin-top: 5px;
+    margin-bottom: 12px;
+    width: 20%;
+    height: 100px;
+    font-size: 14px;
+}

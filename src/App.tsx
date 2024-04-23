@@ -83,34 +83,74 @@ function App() {
                 <HotelDetails />
               </Route>
 
-              <Route exact path="/hotels/:id/rooms/create">
-                <RoomCreation />
-              </Route>
-              <Route exact path="/hotels/:hotelId/rooms/edit/:id">
-                <RoomEdit />
-              </Route>
+              {isHotelOwner() ? (
+                <>
+                  <Route exact path="/hotels/:id/rooms/create">
+                    <RoomCreation />
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+                    <RoomEdit />
+                  </Route>
+                </>
+              ) : (
+                <>
+                  <Route exact path="/hotels/:id/rooms/create">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                </>
+              )}
               <Route exact path="/hotels/:hotelId/rooms/room/:id">
                 <RoomDetails />
               </Route>
 
-              <Route exact path="/hotels/:hotelId/rooms/reservations">
-                <ReservationsPage />
-              </Route>
-              <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
-                <ReservationConfirmation />
-              </Route>
-              <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
-                <ReservationCreation />
-              </Route>
+              {isHotelOwner() ? (
+                <>
+                  <Route exact path="/hotels/:hotelId/rooms/reservations">
+                    <ReservationsPage />
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
+                    <ReservationConfirmation />
+                  </Route>
+                </>
+              ) : (
+                <>
+                  <Route exact path="/hotels/:hotelId/rooms/reservations">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                </>
+              )}
+              <Authorized
+                authorized={
+                  <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
+                    <ReservationCreation />
+                  </Route>}
+                notAuthorized={<>Please, login to see this page</>}
+              />
 
+              {isAdmin() ? (
+                <>
+                  <Route exact path="/accounts/listUsers" >
+                    <UsersPage />
+                  </Route>
+                </>
+              ) : (
+                <>
+                  <Route exact path="/accounts/listUsers" >
+                  <>You are not allowed to see whis page</>
+                  </Route>
+                </>
+              )}
               <Route exact path="/accounts/create">
                 <Register />
               </Route>
               <Route exact path="/accounts/login">
                 <Login />
-              </Route>
-              <Route exact path="/accounts/listUsers" >
-                <UsersPage />
               </Route>
             </div>
           </AuthenticationContext.Provider>
