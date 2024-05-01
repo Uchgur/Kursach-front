@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './Menu';
 import HotelPage from './hotels/hotelsPage';
 import HotelDetails from './hotels/hotelDetails';
@@ -20,6 +20,7 @@ import ReservationCreation from './reservations/reservationCreation';
 import ReservationConfirmation from './reservations/reservationConfirm';
 import ReservationsPage from './reservations/reservationsPage';
 import configureInterceptor from './utils/HttpInterceptors';
+import ImagesPage from './images/imagesPage';
 
 configureInterceptor();
 
@@ -130,8 +131,31 @@ function App() {
                   <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
                     <ReservationCreation />
                   </Route>}
-                notAuthorized={<>Please, login to see this page</>}
+                notAuthorized={
+                  <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
+                    <>Please login to see this page</>
+                  </Route>}
               />
+
+              {isHotelOwner() ? (
+                <>
+                  <Route exact path="/hotels/:id/images/edit">
+                    <ImagesPage isRoom={false} />
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
+                    <ImagesPage isRoom={true} />
+                  </Route>
+                </>
+              ) : (
+                <>
+                  <Route exact path="/hotels/:id/images/edit">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                  <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
+                    <>You are not allowed to see whis page</>
+                  </Route>
+                </>
+              )}
 
               {isAdmin() ? (
                 <>
@@ -142,7 +166,7 @@ function App() {
               ) : (
                 <>
                   <Route exact path="/accounts/listUsers" >
-                  <>You are not allowed to see whis page</>
+                    <>You are not allowed to see whis page</>
                   </Route>
                 </>
               )}

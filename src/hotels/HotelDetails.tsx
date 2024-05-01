@@ -47,10 +47,11 @@ export default function HotelDetails() {
                     />
 
                     <h2>{hotel?.city + ", " + hotel?.address}</h2>
+                    <h2>{"Contact information: " + hotel.contactInformation}</h2>
                     <Authorized
                         authorized={
-                            <Link className="images-link" to={`/hotels/images/create/${hotel.id}`}>
-                                Add new images
+                            <Link className="images-link" to={`/hotels/${hotel.id}/images/edit`}>
+                                Edit Images
                             </Link>
                         }
                         role="hotelOwner"

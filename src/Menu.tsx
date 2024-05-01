@@ -29,6 +29,13 @@ export default function Menu() {
           />
           <Authorized
             authorized={
+              <NavLink className="menu-sub" to="/accounts/listUsers">
+                Users List
+              </NavLink>}
+              role="admin"
+          />
+          <Authorized
+            authorized={
               <span className="menu-auth-el">
                 <span className="menu-auth">Hello, {getUserEmail()}</span>
                 <Button

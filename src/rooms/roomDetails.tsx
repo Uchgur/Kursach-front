@@ -32,6 +32,14 @@ export default function RoomDetails() {
 
                     <h2>{"Room Price: " + room?.price}</h2>
                     <h2>{"Number of Beds: " + room?.beds}</h2>
+                    <Authorized
+                        authorized={
+                            <Link className="images-link" to={`/hotels/${room.hotelId}/rooms/${room.id}/images/edit`}>
+                                Edit Images
+                            </Link>
+                        }
+                        role="hotelOwner"
+                    />
                     <div className={css.div}>
                         {room?.images?.map((image) => (
                             <img alt="Image" src={image.file}></img>

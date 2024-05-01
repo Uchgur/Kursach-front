@@ -1,4 +1,5 @@
 import { hotelCreationDTO } from "../hotels/hotel.model";
+import { imageCreationDTO } from "../images/image.model";
 import { reservationCreationDTO } from "../reservations/reservation.model";
 import { roomCreationDTO } from "../rooms/room.model";
 
@@ -57,6 +58,22 @@ export function convertReservationToFormData(reservation: reservationCreationDTO
     formData.append('hotelId', reservation.hotelId.toString());
 
     formData.append('roomId', reservation.roomId.toString());
+
+    return formData;
+}
+
+export function convertImageToFormData(image: imageCreationDTO): FormData {
+    const formData = new FormData();
+
+    formData.append('file', image.file!);
+
+    if (image.hotelId) {
+        formData.append('hotelId', image.hotelId.toString());
+    }
+
+    if (image.roomId) {
+        formData.append('roomId', image.roomId.toString());
+    }
 
     return formData;
 }

@@ -37,7 +37,7 @@ export default function RoomEdit() {
             data: formData,
             headers: { 'Content-Type': 'multipart/form-data' }
         })
-        history.push(`/hotels/${hotelId}`);
+        history.push(`/hotels/hotel/${hotelId}`);
     }
 
     async function deleteRoom() {

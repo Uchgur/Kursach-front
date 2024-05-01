@@ -19,7 +19,7 @@ export default function HotelIndividual(props: hotelDTO) {
             <img alt="Image" src={props.image} />
           </Link>
           <h1>
-            <Link to={buildLink()}>{props.name}</Link>
+            <Link to={buildLink()} className="spec-link">{props.name}</Link>
           </h1>
           <h2>
             <text>{props.city + ", " + props.address}</text>
