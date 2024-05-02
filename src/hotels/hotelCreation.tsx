@@ -1,5 +1,4 @@
 import axios from "axios";
-import { useEffect } from "react";
 import { hotelCreationDTO } from "./hotel.model";
 import { useHistory } from "react-router-dom";
 import { convertHotelToFormData } from "../utils/FormDataUtil";
@@ -21,7 +20,7 @@ export default function HotelCreation() {
 
     return (
         <>
-            <HotelForm model={{ name: ' ', city: ' ', address: ' ', contactInformation: ' ', description: ' ' }}
+            <HotelForm model={{ name: '', country: '', city: '', address: '', contactInformation: '', description: '', userId: '' }}
                 onSubmit={async (values) => await create(values)}
                 onEdit={false}
             />

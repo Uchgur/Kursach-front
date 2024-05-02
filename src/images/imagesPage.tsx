@@ -9,9 +9,11 @@ import ImageField from "../Forms/ImageField";
 import { Form, Formik } from "formik";
 import Button from "../Forms/Button";
 import ImageForm from "./imageForm";
+import { userDTO } from "../auth/auth.model";
 
 export default function ImagesPage(props: imagesPageProps) {
     const [images, setImages] = useState([]);
+    const [users, setUser] = useState<userDTO>();
     const { id }: any = useParams();
 
     useEffect(() => {
@@ -25,6 +27,11 @@ export default function ImagesPage(props: imagesPageProps) {
         });
     }, [images]);
 
+    useEffect(() => {
+        axios.get(`https://localhost:7173/api/accounts/currentUser`).then((response) => {
+            setUser(response.data);
+        });
+    }, []);
 
     async function create(image: imageCreationDTO) {
         const formData = convertImageToFormData(image);

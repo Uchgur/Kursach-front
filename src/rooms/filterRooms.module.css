@@ -1,0 +1,16 @@
+.div {
+    margin-left: 30px;
+    margin-bottom: 70px;
+}
+
+.form {
+    position: absolute;
+    right: 0;
+    margin-right: 140px;
+    padding-bottom: 70px;
+}
+
+.form input {
+    margin-bottom: 10px;
+    font-size: 16px;
+}

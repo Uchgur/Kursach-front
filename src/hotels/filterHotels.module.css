@@ -1,0 +1,25 @@
+.div {
+    margin-left: 30px;
+    margin-bottom: 70px;
+}
+
+.div h3 {
+    display: inline-flex;
+    position: relative;
+    top: 30px;
+    height: 10px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+.form {
+    position: absolute;
+    right: 0;
+    margin-right: 140px;
+}
+
+.form input {
+    margin-bottom: 10px;
+    font-size: 16px;
+}

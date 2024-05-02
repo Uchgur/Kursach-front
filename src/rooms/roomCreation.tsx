@@ -21,7 +21,7 @@ export default function RoomCreation() {
 
     return (
         <>
-            <RoomForm model={{ type: '', beds: 0, price: '', description: '', hotelId: id }}
+            <RoomForm model={{ type: '', beds: 0, price: '', description: '', hotelId: id, userId: '' }}
                 onSubmit={async (values) => await create(values)}
                 onEdit={false}
             />

@@ -22,7 +22,7 @@ export default function HotelIndividual(props: hotelDTO) {
             <Link to={buildLink()} className="spec-link">{props.name}</Link>
           </h1>
           <h2>
-            <text>{props.city + ", " + props.address}</text>
+            <text>{props.country + ", " + props.city + ", " + props.address}</text>
           </h2>
           <p>
             <ReactMarkdown>{truncateText(props.description, 230)}</ReactMarkdown>

@@ -20,6 +20,16 @@ export default function Menu() {
           <NavLink className="menu-main" to="/hotels">
             Hotels
           </NavLink>
+          <NavLink className="menu-sub" to="/hotels/filter">
+            Hotels Filter
+          </NavLink>
+          <Authorized
+            authorized={
+              <NavLink className="menu-sub" to="/hotels/myhotels">
+                My Hotels
+              </NavLink>}
+              role="hotelOwner"
+          />
           <Authorized
             authorized={
               <NavLink className="menu-sub" to="/hotels/create">

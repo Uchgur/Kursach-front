@@ -9,6 +9,7 @@ export interface roomDTO {
     image?: string;
     images?: imageDTO[];
     hotelId: number;
+    userId: string;
 }
 
 export interface roomCreationDTO {
@@ -19,4 +20,5 @@ export interface roomCreationDTO {
     image?: File;
     imageURL?: string;
     hotelId: number;
+    userId: string;
 }

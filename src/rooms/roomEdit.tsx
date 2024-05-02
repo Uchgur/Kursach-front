@@ -5,11 +5,13 @@ import axios from "axios";
 import { convertRoomToFormData } from "../utils/FormDataUtil";
 import RoomForm from "./roomForm";
 import Button from "../Forms/Button";
+import { userDTO } from "../auth/auth.model";
 
 export default function RoomEdit() {
     const { id }: any = useParams();
     const { hotelId }: any = useParams();
-    const [room, setRoom] = useState<roomCreationDTO>()
+    const [room, setRoom] = useState<roomCreationDTO>();
+    const [user, setUser] = useState<userDTO>();
     const history = useHistory();
 
     function transform(room: roomDTO): roomCreationDTO {
@@ -19,7 +21,8 @@ export default function RoomEdit() {
             price: room.price,
             description: room.description,
             imageURL: room.image,
-            hotelId: room.hotelId
+            hotelId: room.hotelId,
+            userId: room.userId
         };
     }
 
@@ -28,6 +31,12 @@ export default function RoomEdit() {
             setRoom(transform(response.data));
         });
     }, [id]);
+
+    useEffect(() => {
+        axios.get(`https://localhost:7173/api/accounts/currentUser`).then((response) => {
+            setUser(response.data);
+        });
+    }, []);
 
     async function edit(room: roomCreationDTO) {
         const formData = convertRoomToFormData(room);
@@ -47,18 +56,25 @@ export default function RoomEdit() {
 
     return (
         <>
-            {room ? (<>
-                <RoomForm model={room}
-                    onSubmit={async values => await edit(values)}
-                    onEdit={true}
-                />
-                <Button onClick={deleteRoom} className="delete-button">
-                    Delete
-                </Button>
-            </>
+            {(user?.id == room?.userId) ? (
+                <>
+                    {room ? (<>
+                        <RoomForm model={room}
+                            onSubmit={async values => await edit(values)}
+                            onEdit={true}
+                        />
+                        <Button onClick={deleteRoom} className="delete-button">
+                            Delete
+                        </Button>
+                    </>
+                    ) : (
+                        <h1>Loading...</h1>
+                    )}
+                </>
             ) : (
-                <h1>Loading...</h1>
+                <>Hey you! You can't edit room of another user!</>
             )}
+
         </>
     )
 }

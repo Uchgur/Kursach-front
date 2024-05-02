@@ -21,6 +21,8 @@ import ReservationConfirmation from './reservations/reservationConfirm';
 import ReservationsPage from './reservations/reservationsPage';
 import configureInterceptor from './utils/HttpInterceptors';
 import ImagesPage from './images/imagesPage';
+import FilterHotels from './hotels/filterHotels';
+import MyHotelsPage from './hotels/myHotelsPage';
 
 configureInterceptor();
 
@@ -48,7 +50,6 @@ function App() {
     );
   }
 
-
   return (
     <>
       <BrowserRouter>
@@ -61,8 +62,14 @@ function App() {
               <Route exact path="/hotels">
                 <HotelPage />
               </Route>
+              <Route exact path="/hotels/filter">
+                <FilterHotels />
+              </Route>
               {isHotelOwner() ? (
                 <>
+                  <Route exact path="/hotels/myhotels">
+                    <MyHotelsPage />
+                  </Route>
                   <Route exact path="/hotels/create">
                     <HotelCreation />
                   </Route>
@@ -72,11 +79,14 @@ function App() {
                 </>
               ) : (
                 <>
+                  <Route exact path="/hotels/myhotels">
+                    <>You are not allowed to see this page</>
+                  </Route>
                   <Route exact path="/hotels/create">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                   <Route exact path="/hotels/edit/:id">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                 </>
               )}
@@ -96,10 +106,10 @@ function App() {
               ) : (
                 <>
                   <Route exact path="/hotels/:id/rooms/create">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                   <Route exact path="/hotels/:hotelId/rooms/edit/:id">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                 </>
               )}
@@ -119,10 +129,10 @@ function App() {
               ) : (
                 <>
                   <Route exact path="/hotels/:hotelId/rooms/reservations">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                   <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                 </>
               )}
@@ -149,10 +159,10 @@ function App() {
               ) : (
                 <>
                   <Route exact path="/hotels/:id/images/edit">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                   <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                 </>
               )}
@@ -166,7 +176,7 @@ function App() {
               ) : (
                 <>
                   <Route exact path="/accounts/listUsers" >
-                    <>You are not allowed to see whis page</>
+                    <>You are not allowed to see this page</>
                   </Route>
                 </>
               )}

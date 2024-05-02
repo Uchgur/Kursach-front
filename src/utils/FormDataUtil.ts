@@ -8,6 +8,8 @@ export function convertHotelToFormData(hotel: hotelCreationDTO): FormData {
 
     formData.append('name', hotel.name);
 
+    formData.append('country', hotel.country);
+
     formData.append('city', hotel.city);
 
     formData.append('address', hotel.address);

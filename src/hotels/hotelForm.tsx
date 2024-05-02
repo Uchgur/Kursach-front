@@ -20,6 +20,7 @@ export default function HotelForm(props: hotelFormProps) {
                         <h1>Create New Hotel</h1>
                     )}
                     <TextField displayName="Name" field="name" />
+                    <TextField displayName="Country" field="country" />
                     <TextField displayName="City" field="city" />
                     <TextField displayName="Address" field="address" />
                     <TextField displayName="Contact Information" field="contactInformation" />

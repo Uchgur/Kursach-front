@@ -5,20 +5,24 @@ import axios from "axios";
 import { convertHotelToFormData } from "../utils/FormDataUtil";
 import HotelForm from "./hotelForm";
 import Button from "../Forms/Button";
+import { userDTO } from "../auth/auth.model";
 
 export default function HotelEdit() {
     const { id }: any = useParams();
-    const [hotel, setHotel] = useState<hotelCreationDTO>()
+    const [hotel, setHotel] = useState<hotelCreationDTO>();
+    const [user, setUser] = useState<userDTO>();
     const history = useHistory();
 
     function transform(hotel: hotelDTO): hotelCreationDTO {
         return {
             name: hotel.name,
+            country: hotel.country,
             city: hotel.city,
             address: hotel.address,
             contactInformation: hotel.contactInformation,
             description: hotel.description,
-            imageURL: hotel.image
+            imageURL: hotel.image,
+            userId: hotel.userId
         };
     }
 
@@ -27,6 +31,12 @@ export default function HotelEdit() {
             setHotel(transform(response.data));
         });
     }, [id]);
+
+    useEffect(() => {
+        axios.get(`https://localhost:7173/api/accounts/currentUser`).then((response) => {
+            setUser(response.data);
+        });
+    }, []);
 
     async function edit(hotel: hotelCreationDTO) {
         const formData = convertHotelToFormData(hotel);
@@ -46,17 +56,23 @@ export default function HotelEdit() {
 
     return (
         <>
-            {hotel ? (<>
-                <HotelForm model={hotel}
-                    onSubmit={async values => await edit(values)}
-                    onEdit={true}
-                />
-                <Button onClick={deleteHotel} className="delete-button">
-                    Delete
-                </Button>
-            </>
+            {(user?.id == hotel?.userId) ? (
+                <>
+                    {hotel ? (<>
+                        <HotelForm model={hotel}
+                            onSubmit={async values => await edit(values)}
+                            onEdit={true}
+                        />
+                        <Button onClick={deleteHotel} className="delete-button">
+                            Delete
+                        </Button>
+                    </>
+                    ) : (
+                        <h1>Loading...</h1>
+                    )}
+                </>
             ) : (
-                <h1>Loading...</h1>
+                <>Hey you! You can't edit hotel of another user!</>
             )}
         </>
     )
