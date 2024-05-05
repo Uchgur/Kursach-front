@@ -22,7 +22,7 @@ export default function ReservationCreation() {
 
     return(
         <>
-            <ReservationForm model={{startDate: new Date(), endDate: new Date(), hotelId: hotelId, roomId: id, confirmation: false, canceled: false}} 
+            <ReservationForm model={{startDate: new Date(), endDate: new Date(), name: "", surname: "", payOffline: false, payOnline: false, hotelId: hotelId, roomId: id, confirmation: false, canceled: false}} 
                 onSubmit={async (values) => await create(values)} />
         </>
     )

@@ -53,6 +53,14 @@ export function convertReservationToFormData(reservation: reservationCreationDTO
 
     formData.append('endDate', formatDate(reservation.endDate));
 
+    formData.append('name', reservation.name);
+
+    formData.append('surname', reservation.surname);
+
+    formData.append('payOffline', String(reservation.payOffline));
+
+    formData.append('payOnline', String(reservation.payOnline));
+
     formData.append('confirmation', String(reservation.confirmation));
 
     formData.append('canceled', String(reservation.canceled));

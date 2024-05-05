@@ -72,7 +72,7 @@ export default function RoomEdit() {
                     )}
                 </>
             ) : (
-                <>Hey you! You can't edit room of another user!</>
+                <h4 className='block-message'>Hey you! You can't edit room of another user!</h4>
             )}
 
         </>

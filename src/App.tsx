@@ -58,135 +58,134 @@ function App() {
             <div className="menu">
               <Menu />
             </div>
-            <div className='container'>
-              <Route exact path="/hotels">
-                <HotelPage />
-              </Route>
-              <Route exact path="/hotels/filter">
-                <FilterHotels />
-              </Route>
-              {isHotelOwner() ? (
-                <>
-                  <Route exact path="/hotels/myhotels">
-                    <MyHotelsPage />
-                  </Route>
-                  <Route exact path="/hotels/create">
-                    <HotelCreation />
-                  </Route>
-                  <Route exact path="/hotels/edit/:id">
-                    <HotelEdit />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route exact path="/hotels/myhotels">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                  <Route exact path="/hotels/create">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                  <Route exact path="/hotels/edit/:id">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                </>
-              )}
-              <Route exact path="/hotels/hotel/:id">
-                <HotelDetails />
-              </Route>
+            <Authorized authorized={
+              <div className='container'>
+                <Route exact path="/hotels">
+                  <HotelPage />
+                </Route>
+                <Route exact path="/hotels/filter">
+                  <FilterHotels />
+                </Route>
+                {isHotelOwner() ? (
+                  <>
+                    <Route exact path="/hotels/myhotels">
+                      <MyHotelsPage />
+                    </Route>
+                    <Route exact path="/hotels/create">
+                      <HotelCreation />
+                    </Route>
+                    <Route exact path="/hotels/edit/:id">
+                      <HotelEdit />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route exact path="/hotels/myhotels">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                    <Route exact path="/hotels/create">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                    <Route exact path="/hotels/edit/:id">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                  </>
+                )}
+                <Route exact path="/hotels/hotel/:id">
+                  <HotelDetails />
+                </Route>
 
-              {isHotelOwner() ? (
-                <>
-                  <Route exact path="/hotels/:id/rooms/create">
-                    <RoomCreation />
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/edit/:id">
-                    <RoomEdit />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route exact path="/hotels/:id/rooms/create">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/edit/:id">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                </>
-              )}
-              <Route exact path="/hotels/:hotelId/rooms/room/:id">
-                <RoomDetails />
-              </Route>
+                {isHotelOwner() ? (
+                  <>
+                    <Route exact path="/hotels/:id/rooms/create">
+                      <RoomCreation />
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+                      <RoomEdit />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route exact path="/hotels/:id/rooms/create">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/edit/:id">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                  </>
+                )}
+                <Route exact path="/hotels/:hotelId/rooms/room/:id">
+                  <RoomDetails />
+                </Route>
 
-              {isHotelOwner() ? (
-                <>
-                  <Route exact path="/hotels/:hotelId/rooms/reservations">
-                    <ReservationsPage />
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
-                    <ReservationConfirmation />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route exact path="/hotels/:hotelId/rooms/reservations">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                </>
-              )}
-              <Authorized
-                authorized={
-                  <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
-                    <ReservationCreation />
-                  </Route>}
-                notAuthorized={
-                  <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
-                    <>Please login to see this page</>
-                  </Route>}
-              />
+                {isHotelOwner() ? (
+                  <>
+                    <Route exact path="/hotels/:hotelId/rooms/reservations">
+                      <ReservationsPage />
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
+                      <ReservationConfirmation />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route exact path="/hotels/:hotelId/rooms/reservations">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/:roomId/reservation/:id/confirm">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                  </>
+                )}
+                <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
+                  <ReservationCreation />
+                </Route>
 
-              {isHotelOwner() ? (
-                <>
-                  <Route exact path="/hotels/:id/images/edit">
-                    <ImagesPage isRoom={false} />
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
-                    <ImagesPage isRoom={true} />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route exact path="/hotels/:id/images/edit">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                  <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
-                    <>You are not allowed to see this page</>
-                  </Route>
-                </>
-              )}
+                {isHotelOwner() ? (
+                  <>
+                    <Route exact path="/hotels/:id/images/edit">
+                      <ImagesPage isRoom={false} />
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
+                      <ImagesPage isRoom={true} />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route exact path="/hotels/:id/images/edit">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                    <Route exact path="/hotels/:hotelId/rooms/:id/images/edit">
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                  </>
+                )}
 
-              {isAdmin() ? (
-                <>
-                  <Route exact path="/accounts/listUsers" >
-                    <UsersPage />
-                  </Route>
-                </>
-              ) : (
-                <>
-                  <Route exact path="/accounts/listUsers" >
-                    <>You are not allowed to see this page</>
-                  </Route>
-                </>
-              )}
-              <Route exact path="/accounts/create">
-                <Register />
-              </Route>
-              <Route exact path="/accounts/login">
-                <Login />
-              </Route>
-            </div>
+                {isAdmin() ? (
+                  <>
+                    <Route exact path="/accounts/listUsers" >
+                      <UsersPage />
+                    </Route>
+                  </>
+                ) : (
+                  <>
+                    <Route exact path="/accounts/listUsers" >
+                      <h4 className='block-message'>You are not allowed to see this page</h4>
+                    </Route>
+                  </>
+                )}
+              </div>
+            }
+              notAuthorized={<div>
+                <Route exact path="/accounts/create">
+                  <Register />
+                </Route>
+                <Route exact path="/accounts/login">
+                  <Login />
+                </Route>
+                <h4 className='block-message'>Please login to see this page</h4>
+              </div>}
+            />
           </AuthenticationContext.Provider>
         </Switch>
         <footer className="footer">

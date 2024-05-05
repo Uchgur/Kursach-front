@@ -98,3 +98,12 @@ code {
 .spec-link {
   text-decoration: none;
 }
+
+.block-message {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 30px;
+}

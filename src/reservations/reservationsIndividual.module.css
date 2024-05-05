@@ -1,0 +1,32 @@
+.div {
+    display: block;
+    margin-right: 2%;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.div h1 {
+    display: block;
+    position: relative;
+    height: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.div text {
+    display: block;
+    font-size: 17px;
+}
+
+.green {
+    display: block;
+    font-size: 17px;
+    color: green;
+}
+
+.red {
+    display: block;
+    font-size: 17px;
+    color: red;
+}

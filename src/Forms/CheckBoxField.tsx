@@ -13,6 +13,7 @@ export default function CheckboxField(props: checkboxFieldProps) {
         className="form-control"
         id={props.field}
         name={props.field}
+        disabled={props.disabled}
         checked={values[props.field] === true}
         onChange={(e) => {
           setFieldValue(props.field, e.currentTarget.checked ? true : false);
@@ -28,4 +29,9 @@ interface checkboxFieldProps {
   field: string;
   displayName: string;
   text: string;
+  disabled: boolean;
+}
+
+CheckboxField.defaultProps = {
+  disabled: false
 }

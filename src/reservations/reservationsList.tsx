@@ -1,13 +1,14 @@
 import GenericList from "../utils/GenericList";
 import { reservationDTO } from "./reservation.model";
 import ReservationIndividual from "./reservationIndividual";
+import css from "./reservationsList.module.css"
 
 export default function ReservationsList(props: reservationListProps) {
     return (
         <>
             {props.reservations ? (
                 <GenericList list={props.reservations}>
-                    <div>
+                    <div className={css.div}>
                         {props.reservations?.map(reservation => <ReservationIndividual {...reservation} key={reservation.id} />)}
                     </div>
                 </GenericList>

@@ -72,7 +72,7 @@ export default function HotelEdit() {
                     )}
                 </>
             ) : (
-                <>Hey you! You can't edit hotel of another user!</>
+                <h4 className='block-message'>Hey you! You can't edit hotel of another user!</h4>
             )}
         </>
     )
