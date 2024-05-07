@@ -1,4 +1,4 @@
-import { Link, NavLink, Switch } from "react-router-dom";
+import { Link, NavLink, Switch, useHistory } from "react-router-dom";
 import "./Menu.css"
 import Authorized from "./auth/authorize";
 import Button from "./Forms/Button";
@@ -7,6 +7,7 @@ import { useContext } from "react";
 import AuthenticationContext from "./auth/authentificationContext";
 
 export default function Menu() {
+  const history = useHistory();
   const { update, claims } = useContext(AuthenticationContext);
 
   function getUserEmail(): string {
@@ -22,6 +23,9 @@ export default function Menu() {
           </NavLink>
           <NavLink className="menu-sub" to="/hotels/filter">
             Hotels Filter
+          </NavLink>
+          <NavLink className="menu-sub" to="/hotels/rooms/reservations/myreservations">
+            My Reservations
           </NavLink>
           <Authorized
             authorized={
@@ -52,6 +56,7 @@ export default function Menu() {
                   onClick={() => {
                     logout();
                     update([]);
+                    history.push("/hotels")
                   }}
                   className="menu-auth menu-button"
                 >

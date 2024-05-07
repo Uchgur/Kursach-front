@@ -23,6 +23,8 @@ import configureInterceptor from './utils/HttpInterceptors';
 import ImagesPage from './images/imagesPage';
 import FilterHotels from './hotels/filterHotels';
 import MyHotelsPage from './hotels/myHotelsPage';
+import UsersReservations from './reservations/usersReservations';
+import FilterUsers from './auth/filterUsers';
 
 configureInterceptor();
 
@@ -137,6 +139,9 @@ function App() {
                     </Route>
                   </>
                 )}
+                <Route exact path="/hotels/rooms/reservations/myreservations">
+                  <UsersReservations />
+                </Route>
                 <Route exact path="/hotels/:hotelId/rooms/:id/reservation/create">
                   <ReservationCreation />
                 </Route>
@@ -164,7 +169,7 @@ function App() {
                 {isAdmin() ? (
                   <>
                     <Route exact path="/accounts/listUsers" >
-                      <UsersPage />
+                      <FilterUsers />
                     </Route>
                   </>
                 ) : (
@@ -183,7 +188,7 @@ function App() {
                 <Route exact path="/accounts/login">
                   <Login />
                 </Route>
-                <h4 className='block-message'>Please login to see this page</h4>
+                <h4 className='block-message'>You can see pages only after logging in or registration!</h4>
               </div>}
             />
           </AuthenticationContext.Provider>

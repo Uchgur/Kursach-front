@@ -1,0 +1,31 @@
+.table {
+    margin-top: 60px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.table thead {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.table thead th {
+    padding: 10px 25px 10px 25px;
+    border-collapse: collapse;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.table tbody {
+    font-size: 20px;
+}
+
+.table tbody td {
+    padding: 10px 25px 10px 25px;
+    border-collapse: collapse;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 2px solid black;
+}

@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReservationsList from "./reservationsList";
 import { userDTO } from "../auth/auth.model";
-import { roomDTO } from "../rooms/room.model";
 import { hotelDTO } from "../hotels/hotel.model";
 
 export default function ReservationsPage() {

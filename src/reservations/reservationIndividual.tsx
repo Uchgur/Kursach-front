@@ -3,7 +3,6 @@ import { reservationDTO } from "./reservation.model";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { roomDTO } from "../rooms/room.model";
-import DateField from "../Forms/DateField";
 import { formatDate } from "../utils/FormDataUtil";
 import css from "./reservationsIndividual.module.css"
 

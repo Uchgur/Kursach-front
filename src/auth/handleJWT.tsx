@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import {authenticationResponse, claim} from './auth.model';
 
 const tokenKey = 'token';
