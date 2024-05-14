@@ -7,7 +7,6 @@ import { formatDate } from "../utils/FormDataUtil";
 import css from "./reservationsIndividual.module.css"
 
 export default function ReservationIndividual(props: reservationDTO) {
-    const buildLink = () => `/hotels/${props.hotelId}/rooms/${props.roomId}/reservation/${props.id}/confirm`
     const [room, setRoom] = useState<roomDTO>()
     const startdateString = formatDate(props.startDate);
     const endDateString = formatDate(props.endDate);
@@ -18,11 +17,9 @@ export default function ReservationIndividual(props: reservationDTO) {
         });
     }, [props.roomId]);
 
-    return(
+    return (
         <div className={css.div}>
-            <Link to={buildLink()}>
-                <h1>{props.surname + " " + props.name}</h1>
-            </Link>
+            <h1>{props.surname + " " + props.name}</h1>
             <text>{"Room Type: " + [room?.type]}</text>
             <text>{startdateString + " --- " + endDateString}</text>
             {props.confirmation ? (
